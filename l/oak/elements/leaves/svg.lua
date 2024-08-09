@@ -1,6 +1,6 @@
 
 local lgi = require("lgi")
-local stdcolor = require("stdcolor")
+local stdcolor = require("terra.tools.color")
 
 local tt_table = require("terra.tools.table")
 

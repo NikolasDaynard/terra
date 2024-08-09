@@ -1,6 +1,6 @@
 
 local lgi = require("lgi")
-local stdcolor = require("stdcolor")
+local stdcolor = require("terra.tools.color")
 
 local SOURCE_LINEAR_GRADIENT = 3
 local SOURCE_RADIAL_GRADIENT = 4
