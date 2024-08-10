@@ -31,7 +31,13 @@ local function _window_drawing_context_destroy(window)
 
     -- first, destroy what needs to be destroyed.
     -- TODO: can I use cairo_surface_create_similar for better performance?
+    -- if window.lgi_cairo_surf then
+    if not window.lgi_cairo_surf then
+        print("NO SURF ENFEOINFEONFOENF")
+        os.exit()
+    end
     window.lgi_cairo_surf:finish()
+    -- end
     t_i_spixmap.destroy(window.scope.app.terra_data, window.pixmap_id)
     t_i_scairo.destroy(window.cairo_surf_ptr) -- we don't need 'window.scope.app.terra_data' for this
 
@@ -98,6 +104,11 @@ local function draw(window)
     -- if the geometry of the window changed since last time, we need a new 
     -- context for drawing.
     local window_geom = window:get_geometry()
+    
+    if not window_geom.width or not window_geom.height then
+        window_geom.width = 100;
+        window_geom.height = 100;
+    end
     if window_geom.width ~= window.pixmap_width 
         or window_geom.height ~= window.pixmap_height 
     then

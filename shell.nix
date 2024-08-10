@@ -59,5 +59,8 @@ pkgs.mkShell {
       XKBCOMMON_X11_DIR="$XKBCOMMON_X11_DIR" \
       LUA_INCDIR="$LUA_INCDIR" \
       CFLAGS="-I$XCB_HEADER_DIR/include"
+
+    export LUA_PATH="/home/nikolasd/.luarocks/share/lua/5.1/?.lua;;"
+    export LUA_CPATH="/home/nikolasd/.luarocks/lib/lua/5.1/?.so;;"
   '';
 }
