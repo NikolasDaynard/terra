@@ -308,7 +308,6 @@ end
 -- Just draw everything if anything changed LMAO
 -- TODO: in the future, implement a more optimized drawing function
 local function draw(root, cr, window_width, window_height)
-
     -- send out an AnimationEvent signal, if anybody wants to do something
     tstation.emit(root.station, "AnimationEvent", t_i_application.now())
 

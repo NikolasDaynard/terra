@@ -44,9 +44,21 @@ int luaH_scairo_surface_create_from_pixmap(lua_State *L)
 int luaH_scairo_surface_destroy(lua_State *L)
 {
     cairo_surface_t *cairo_surface = (cairo_surface_t *) lua_tointeger(L, 1);
+    
+    if (cairo_surface == NULL) {
+        return luaL_error(L, "Invalid Cairo surface pointer.");
+    }
+
+    printf("Surface Pointer: %d\n", cairo_surface_get_reference_count(cairo_surface));
 
     cairo_surface_finish(cairo_surface);
     cairo_surface_destroy(cairo_surface);
+    // cairo_surface_reference(cairo_surface);
+    // cairo_surface = NULL;
+
+    printf("pointer: %p\n", cairo_surface);
+
+    printf("Surface Pointer: %d\n", cairo_surface_get_reference_count(cairo_surface));
     
     return 0;
 }
